@@ -8,7 +8,9 @@ const CountryPage = ({ countries }) => {
 
   if (!country) return <p>Loading country data...</p>;
 
-  return <CountryDetails country={country} />;
+  return <CountryDetails country={country} countries={countries} />
+
+  ;
 };
 
 export default CountryPage;

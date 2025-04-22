@@ -1,10 +1,11 @@
 import React from "react";
 import { Typography, Card, CardContent, Divider, Button } from "@mui/material";
 import Flag from "./Flag";
-import Borders from "./Borders";
+import BordersByArea from "./Borders";
 import {  useNavigate  } from "react-router-dom";
-
-const CountryDetails = ({ country }) => {
+import { Link } from "react-router-dom";
+const CountryDetails = ({ country, countries }) => {
+  
   const currency = country.currencies ? Object.values(country.currencies)[0]?.name : "N/A";
   const languages = country.languages ? Object.values(country.languages).join(", ") : "N/A";
   const navigate = useNavigate();
@@ -13,7 +14,10 @@ const CountryDetails = ({ country }) => {
     
     <Card sx={{ maxWidth: 600, margin: "2rem auto", padding: 2 }}>
       <Button onClick={() => navigate(-1)} variant="contained" sx={{ m: 2 }}>
-        ⬅ Back
+        🔙 Back
+      </Button>
+       <Button component={Link} to="/" variant="contained" sx={{ m: 2 }}>
+        🏠Home
       </Button>
       <CardContent>
         <Typography variant="h4" gutterBottom>
@@ -35,7 +39,7 @@ const CountryDetails = ({ country }) => {
 
         <Divider sx={{ my: 2 }} />
 
-        <Borders borders={country.borders} />
+        <BordersByArea borders={country.borders} countries={countries} />
       </CardContent>
     </Card>
   );

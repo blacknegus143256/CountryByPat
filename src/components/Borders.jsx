@@ -2,8 +2,14 @@ import React from "react";
 import { Box, Typography, Button, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const Borders = ({ borders = [] }) => {
+const Borders = ({ borders = [], countries = [] }) => {
   if (!borders.length) return <Typography>No bordering countries</Typography>;
+
+  // Create a lookup to find country name by code
+  const getCountryName = (code) => {
+    const match = countries.find((c) => c.cca3 === code);
+    return match ? match.name.common : code;
+  };
 
   return (
     <Box>
@@ -17,7 +23,7 @@ const Borders = ({ borders = [] }) => {
             variant="outlined"
             size="small"
           >
-            {code}
+            {getCountryName(code)}
           </Button>
         ))}
       </Stack>

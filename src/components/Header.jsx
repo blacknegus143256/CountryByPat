@@ -4,7 +4,7 @@ import { AppBar, Toolbar, Typography } from "@mui/material";
 const Header = () => (
   <AppBar position="static">
     <Toolbar>
-      <Typography variant="h6">🌍 Country Info Visualizer</Typography>
+      <Typography variant="h6">🌍 Country Info Visualizer By Patrick Corda</Typography>
     </Toolbar>
   </AppBar>
 );

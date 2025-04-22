@@ -15,6 +15,7 @@ const Home = ({ countries }) => {
   });
 
   return (
+    <div>
     <Box p={3}>
       <Typography variant="h5" gutterBottom>Explore Country Information</Typography>
 
@@ -28,7 +29,7 @@ const Home = ({ countries }) => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid container spacing={2} mb={3} item xs={12} sm={6}>
           <TextField
             fullWidth
             select
@@ -43,12 +44,14 @@ const Home = ({ countries }) => {
             <MenuItem value="Asia">Asia</MenuItem>
             <MenuItem value="Europe">Europe</MenuItem>
             <MenuItem value="Oceania">Oceania</MenuItem>
+            <MenuItem value="Antarctic">Antarctic</MenuItem>
           </TextField>
         </Grid>
       </Grid>
 
       <Grid container spacing={2}>
         {filteredCountries.map((country) => (
+          
           <Grid item xs={12} sm={6} md={4} lg={3} key={country.cca3}>
             <Card
               component={Link}
@@ -75,6 +78,7 @@ const Home = ({ countries }) => {
         ))}
       </Grid>
     </Box>
+  </div>
   );
 };
 
