@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Card, CardContent, Divider, Button } from "@mui/material";
 import Flag from "./Flag";
-import BordersByArea from "./Borders";
+import Borders from "./Borders";
 import {  useNavigate  } from "react-router-dom";
 import { Link } from "react-router-dom";
 const CountryDetails = ({ country, countries }) => {
@@ -39,7 +39,7 @@ const CountryDetails = ({ country, countries }) => {
 
         <Divider sx={{ my: 2 }} />
 
-        <BordersByArea borders={country.borders} countries={countries} />
+        <Borders borders={country.borders} countries={countries} />
       </CardContent>
     </Card>
   );
